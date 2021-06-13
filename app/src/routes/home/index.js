@@ -6,8 +6,8 @@ const router = express.Router();
 const crtl = require('./home.ctrl');
 
 
-router.get('/', crtl.home);
-router.get('/login', crtl.login);
-
+router.get('/', crtl.output.home);
+router.get('/login', crtl.output.login);
+router.post('/login', crtl.process.login);
 
 module.exports = router;
