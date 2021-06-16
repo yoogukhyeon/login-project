@@ -18,12 +18,25 @@ function login(){
     };
   
     fetch('/login', {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-type" : "application/json"
+            'Content-Type' : 'application/json',
         },
-        body: JSON.stringify(req)
-    }).then((res) => console.log(res.json()))
+        body: JSON.stringify(req),
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            if(res.success){
+                location.href="/login";
+            }else{
+                alert(res.msg);
+            }
+
+
+        }).catch((err) => {
+            console.error("로그인중 에러 발생");
+
+        })
 
 
     
