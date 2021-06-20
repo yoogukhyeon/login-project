@@ -11,17 +11,22 @@ class User {
     }
 
     login(){
-        const body = this.body;
-        const {id, password} = UserStorage.getUserinfo(body.id);
+        const client = this.body;
+        const {id, password} = UserStorage.getUserinfo(client.id);
    
         if(id){
-            if(id === body.id && password === body.pw){
+            if(id === client.id && password === client.pw){
                 return {success: true , msg: "로그인 성공입니다."}
             }else{
                 return {success: false , msg: "비밀번호가 틀립니다."}
             }
         }
         return {success: false , msg: "아이디가 없습니다."}
+    };
+
+    register() {
+        const client = this.body;
+        UserStorage.save(client);
     }
 }
 
