@@ -1,5 +1,6 @@
 "use strict";
 
+const { response } = require('express');
 const UserStorage = require('./UserStorage');
 
 
@@ -24,9 +25,14 @@ class User {
         return {success: false , msg: "아이디가 없습니다."}
     };
 
-    register() {
+    async register() {
         const client = this.body;
-        UserStorage.save(client);
+        try{
+        const response = await UserStorage.save(client);
+        return response;
+    } catch (err) {
+        return {success : false, msg: err}
+    }
     }
 }
 
