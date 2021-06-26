@@ -14,7 +14,7 @@ class User {
     async login(){
         const client = this.body;
         const {id , password} = await UserStorage.getUserinfo(client.id);
-        console.log({id , password})
+     
         if(id){
             if(id === client.id && password === client.pw){
                 return {success: true , msg: "로그인 성공입니다."}
