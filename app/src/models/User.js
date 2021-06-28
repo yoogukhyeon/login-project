@@ -13,6 +13,7 @@ class User {
 
     async login(){
         const client = this.body;
+        try{
         const {id , password} = await UserStorage.getUserinfo(client.id);
      
         if(id){
@@ -23,6 +24,9 @@ class User {
             }
         }
         return {success: false , msg: "아이디가 없습니다."}
+    }catch (err){
+            return {success : false , msg: err}
+        }
     };
 
     async register() {
