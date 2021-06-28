@@ -19,6 +19,13 @@ function register(){
     if(!id.value){
         return alert('아이디를 입력해주세요.')
     };
+    if(name.value == ""){
+        return alert('이름을 입력해주세요.')
+    }
+
+    if(pw.value == ""){
+        return alert('비밀번호를 입력해주세요.')
+    }
     if(pw.value !== confirmPassword.value){
         return alert("비밀번호가 일치하지않습니다.")
     };
