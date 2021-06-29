@@ -10,6 +10,12 @@ const morgan = require('morgan');
 const home = require("./src/routes/home");
 const accessLogStream = require('./src/config/log')
 
+
+const logger = require('./src/config/logger');
+logger.error( 'hello');
+
+
+
 //앱 세팅
 app.set("views", "./src/views");
 app.set("view engine","ejs");
