@@ -1,8 +1,9 @@
 "use strict";
 
 const app = require('../app');
+const logger = require('../src/config/logger');
 const port = process.env.port || 3000;
 
 app.listen(port, () => {
-    console.log(`${port}포트 포트로 이동중....`);
+    logger.info(`${port}포트 Login 이동중....`);
 })

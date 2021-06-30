@@ -8,12 +8,10 @@ const morgan = require('morgan');
 
 // 라우팅
 const home = require("./src/routes/home");
-const accessLogStream = require('./src/config/log')
 
 
+//winston connect
 const logger = require('./src/config/logger');
-logger.error( 'hello');
-
 
 
 //앱 세팅
@@ -27,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //morgan 미들웨어 등록
 app.use(morgan('dev'));
-app.use(morgan('common', {stream: accessLogStream}))
+// app.use(morgan('common', {stream: accessLogStream}))
 
 
 app.use(express.static(`${__dirname}/src/public`));
