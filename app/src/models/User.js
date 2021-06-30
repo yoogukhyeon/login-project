@@ -14,16 +14,16 @@ class User {
     async login(){
         const client = this.body;
         try{
-        const {id , password} = await UserStorage.getUserinfo(client.id);
+        const user = await UserStorage.getUserinfo(client.id);
      
-        if(id){
-            if(id === client.id && password === client.pw){
+        if(user){
+            if(user.id === client.id && user.password === client.pw){
                 return {success: true , msg: "로그인 성공입니다."}
             }else{
                 return {success: false , msg: "비밀번호가 틀립니다."}
             }
         }
-        return {success: false , msg: "아이디가 없습니다."}
+        return {success: false , msg: "존재 하는 아이디가 없습니다."}
     }catch (err){
             return {success : false , err}
         }
