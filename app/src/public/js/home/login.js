@@ -24,6 +24,7 @@ function login(){
         return false
     }
 
+    
 
     const req = {
         id: id.value,
@@ -42,7 +43,8 @@ function login(){
             if(res.success){
                 location.href="/";
             }else{
-                alert(res.json.stringify(msg));
+                if (res.err) return alert(res.err);
+                alert(res.msg);
             }
 
 

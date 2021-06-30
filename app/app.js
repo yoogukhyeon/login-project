@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //url을 통해서 전달 되는 url 데이터들을 꺠지지않고 전달해주기 위해서 있다
 
 //morgan 미들웨어 등록
-app.use(morgan('dev'));
-// app.use(morgan('common', {stream: accessLogStream}))
+app.use(morgan('dev' , {stream: logger.stream}));
+// app.use(morgan('tiny', {stream: accessLogStream}))
 
 
 app.use(express.static(`${__dirname}/src/public`));
